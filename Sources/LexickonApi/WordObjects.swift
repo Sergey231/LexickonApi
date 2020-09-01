@@ -17,13 +17,13 @@ public struct WordGetObject: Codable {
     var image: String
 }
 
-public struct WordCreate: Codable {
+public struct WordCreateObject: Codable {
     var studyWord: String
     var translates: [String]
     var imageKey: String?
     var image: String
 }
 
-public struct WordUpdate: Codable {
+public struct WordUpdateObject: Codable {
     var nextLessonDate: String
 }

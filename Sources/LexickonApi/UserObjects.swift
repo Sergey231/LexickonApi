@@ -1,19 +1,19 @@
 
 import Foundation
 
-public struct UserList: Codable {
+public struct UserListObject: Codable {
     var email: String
 }
 
-public struct UserGet: Codable {
+public struct UserGetObject: Codable {
     var email: String
 }
 
-public struct UserCreate: Codable {
+public struct UserCreateObject: Codable {
     var email: String
     var password: String
 }
 
-public struct UserUpdate: Codable {
+public struct UserUpdateObject: Codable {
     var email: String
 }
