@@ -2,7 +2,7 @@
 import Foundation
 
 public struct WordListObject: Codable {
-    var id: String
+    var id: UUID
     var studyWord: String
     var translates: [String]
     var nextLessonDate: Date
@@ -24,7 +24,7 @@ public struct WordListObject: Codable {
 }
 
 public struct WordGetObject: Codable {
-    var id: String
+    var id: UUID
     var studyWord: String
     var translates: [String]
     var nextLessonDate: Date
