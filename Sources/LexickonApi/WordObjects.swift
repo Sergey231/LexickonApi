@@ -7,6 +7,20 @@ public struct WordListObject: Codable {
     var translates: [String]
     var nextLessonDate: Date
     var image: String
+    
+    init(
+        id: UUID,
+        studyWord: String,
+        translates: [String],
+        nextLessonDate: Date,
+        image: String
+    ) {
+        self.id = id
+        self.studyWord = studyWord
+        self.translates = translates
+        self.nextLessonDate = nextLessonDate
+        self.image = image
+    }
 }
 
 public struct WordGetObject: Codable {
@@ -15,6 +29,20 @@ public struct WordGetObject: Codable {
     var translates: [String]
     var nextLessonDate: Date
     var image: String
+    
+    init(
+        id: UUID,
+        studyWord: String,
+        translates: [String],
+        nextLessonDate: Date,
+        image: String
+    ) {
+        self.id = id
+        self.studyWord = studyWord
+        self.translates = translates
+        self.nextLessonDate = nextLessonDate
+        self.image = image
+    }
 }
 
 public struct WordCreateObject: Codable {
@@ -22,8 +50,24 @@ public struct WordCreateObject: Codable {
     var translates: [String]
     var imageKey: String?
     var image: String
+    
+    init(
+        studyWord: String,
+        translates: [String],
+        nextLessonDate: Date,
+        image: String
+    ) {
+        self.studyWord = studyWord
+        self.translates = translates
+        self.nextLessonDate = nextLessonDate
+        self.image = image
+    }
 }
 
 public struct WordUpdateObject: Codable {
     var nextLessonDate: String
+    
+    init(nextLessonDate: String) {
+        self.nextLessonDate = nextLessonDate
+    }
 }
