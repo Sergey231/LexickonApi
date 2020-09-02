@@ -54,12 +54,12 @@ public struct WordCreateObject: Codable {
     init(
         studyWord: String,
         translates: [String],
-        nextLessonDate: Date,
+        imageKey: String?,
         image: String
     ) {
         self.studyWord = studyWord
         self.translates = translates
-        self.nextLessonDate = nextLessonDate
+        self.imageKey = imageKey
         self.image = image
     }
 }
