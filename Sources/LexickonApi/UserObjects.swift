@@ -2,7 +2,7 @@
 import Foundation
 
 public struct UserListObject: Codable {
-    var email: String
+    public var email: String
     
     public init(email: String) {
         self.email = email
@@ -10,7 +10,7 @@ public struct UserListObject: Codable {
 }
 
 public struct UserGetObject: Codable {
-    var email: String
+    public var email: String
     
     public init(email: String) {
         self.email = email
@@ -18,8 +18,8 @@ public struct UserGetObject: Codable {
 }
 
 public struct UserCreateObject: Codable {
-    var email: String
-    var password: String
+    public var email: String
+    public var password: String
     
     public init(
         email: String,
@@ -31,7 +31,7 @@ public struct UserCreateObject: Codable {
 }
 
 public struct UserUpdateObject: Codable {
-    var email: String
+    public var email: String
     
     public init(email: String) {
         self.email = email

@@ -2,11 +2,11 @@
 import Foundation
 
 public struct WordListObject: Codable {
-    var id: UUID
-    var studyWord: String
-    var translates: [String]
-    var nextLessonDate: Date
-    var image: String
+    public var id: UUID
+    public var studyWord: String
+    public var translates: [String]
+    public var nextLessonDate: Date
+    public var image: String
     
     public init(
         id: UUID,
@@ -24,11 +24,11 @@ public struct WordListObject: Codable {
 }
 
 public struct WordGetObject: Codable {
-    var id: UUID
-    var studyWord: String
-    var translates: [String]
-    var nextLessonDate: Date
-    var image: String
+    public var id: UUID
+    public var studyWord: String
+    public var translates: [String]
+    public var nextLessonDate: Date
+    public var image: String
     
     public init(
         id: UUID,
@@ -46,10 +46,10 @@ public struct WordGetObject: Codable {
 }
 
 public struct WordCreateObject: Codable {
-    var studyWord: String
-    var translates: [String]
-    var imageKey: String?
-    var image: String
+    public var studyWord: String
+    public var translates: [String]
+    public var imageKey: String?
+    public var image: String
     
     public init(
         studyWord: String,
@@ -65,7 +65,7 @@ public struct WordCreateObject: Codable {
 }
 
 public struct WordUpdateObject: Codable {
-    var nextLessonDate: String
+    public var nextLessonDate: String
     
     public init(nextLessonDate: String) {
         self.nextLessonDate = nextLessonDate
