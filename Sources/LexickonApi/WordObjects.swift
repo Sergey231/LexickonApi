@@ -71,3 +71,11 @@ public struct WordUpdateObject: Codable {
         self.nextLessonDate = nextLessonDate
     }
 }
+
+public struct WordPatchObject: Codable {
+    public var nextLessonDate: Date
+    
+    public init(nextLessonDate: Date) {
+        self.nextLessonDate = nextLessonDate
+    }
+}
