@@ -37,3 +37,11 @@ public struct UserUpdateObject: Codable {
         self.email = email
     }
 }
+
+public struct UserPatchObject: Codable {
+    public var email: String
+    
+    public init(email: String) {
+        self.email = email
+    }
+}
