@@ -65,9 +65,9 @@ public struct WordCreateObject: Codable {
 }
 
 public struct WordUpdateObject: Codable {
-    public var nextLessonDate: String
+    public var nextLessonDate: Date
     
-    public init(nextLessonDate: String) {
+    public init(nextLessonDate: Date) {
         self.nextLessonDate = nextLessonDate
     }
 }
