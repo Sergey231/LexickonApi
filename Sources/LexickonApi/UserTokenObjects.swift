@@ -1,13 +1,7 @@
-//
-//  File.swift
-//  
-//
-//  Created by Sergey Borovikov on 12.09.2020.
-//
 
 import Foundation
 
-public struct UserTockenGetObject: Codable {
+public struct UserTokenGetObject: Codable {
     
     public var value: String
     public var userId: String
