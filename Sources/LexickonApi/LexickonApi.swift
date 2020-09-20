@@ -1,3 +1,3 @@
 struct LexickonApi {
-    var text = "Hello, World!"
+    var text = "Hello, LexickonApi!"
 }
