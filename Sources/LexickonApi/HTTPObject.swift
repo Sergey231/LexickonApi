@@ -13,6 +13,7 @@ public enum HTTPObject {
     
     public enum Error: LocalizedError {
         case invalidResponse
+        case unauthorized
         case statusCode(Int)
         case unknown(Swift.Error)
     }
