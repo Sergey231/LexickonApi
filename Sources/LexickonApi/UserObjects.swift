@@ -23,7 +23,7 @@ public struct UserCreateObject: Codable {
     
     public init(
         email: String,
-        hashedPassword: String
+        password: String
     ) {
         self.email = email
         self.password = password
