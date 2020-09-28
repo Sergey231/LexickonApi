@@ -19,14 +19,14 @@ public struct UserGetObject: Codable {
 
 public struct UserCreateObject: Codable {
     public var email: String
-    public var hashedPassword: String
+    public var password: String
     
     public init(
         email: String,
         hashedPassword: String
     ) {
         self.email = email
-        self.hashedPassword = hashedPassword
+        self.password = password
     }
 }
 
