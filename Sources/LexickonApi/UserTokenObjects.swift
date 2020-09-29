@@ -13,4 +13,9 @@ public struct UserTokenGetObject: Codable {
         self.value = value
         self.userId = userId
     }
+    
+    public enum CodingKeys: String, CodingKey {
+            case value
+            case userId
+        }
 }
