@@ -15,6 +15,6 @@ public enum HTTPObject {
         case invalidResponse
         case unauthorized
         case statusCode(Int)
-        case unknown(Swift.Error)
+        case unknown
     }
 }
