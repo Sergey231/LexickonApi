@@ -17,7 +17,7 @@ public enum HTTPObject {
         case statusCode(Int)
         case unknown
     
-        public func handleError(with statusCode: Int) -> Self {
+        public func handleError(with statusCode: Int?) -> Self {
             switch statusCode {
             case 401:
                 return HTTPObject.Error.unauthorized
