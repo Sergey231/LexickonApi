@@ -17,12 +17,12 @@ public enum HTTPObject {
         case statusCode(Int)
         case unknown
     
-        public func handleError(with statusCode: Int?) -> Self {
+        public init(with statusCode: Int?) {
             switch statusCode {
             case 401:
-                return HTTPObject.Error.unauthorized
+                self = .unauthorized
             default:
-                return HTTPObject.Error.unknown
+                self = .unknown
             }
         }
     }
