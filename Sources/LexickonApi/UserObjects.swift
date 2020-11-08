@@ -1,7 +1,7 @@
 
 import Foundation
 
-public struct UserListObject: Codable {
+public struct LxUserList: Codable {
     public var email: String
     
     public init(email: String) {
@@ -9,7 +9,7 @@ public struct UserListObject: Codable {
     }
 }
 
-public struct UserGetObject: Codable {
+public struct LxUserGet: Codable {
     public var email: String
     
     public init(email: String) {
@@ -17,7 +17,7 @@ public struct UserGetObject: Codable {
     }
 }
 
-public struct UserCreateObject: Codable {
+public struct LxUserCreate: Codable {
     public var email: String
     public var password: String
     
@@ -30,7 +30,7 @@ public struct UserCreateObject: Codable {
     }
 }
 
-public struct UserUpdateObject: Codable {
+public struct LxUserUpdate: Codable {
     public var email: String
     
     public init(email: String) {
@@ -38,7 +38,7 @@ public struct UserUpdateObject: Codable {
     }
 }
 
-public struct UserPatchObject: Codable {
+public struct LxUserPatch: Codable {
     public var email: String
     
     public init(email: String) {

@@ -1,7 +1,7 @@
 
 import Foundation
 
-public struct PageObject<T: Decodable>: Decodable {
+public struct LxPage<T: Decodable>: Decodable {
     public struct Metadata: Decodable {
         let page: Int
         let per: Int

@@ -1,7 +1,7 @@
 
 import Foundation
 
-public struct WordListObject: Codable {
+public struct LxWordList: Codable {
     public var id: UUID
     public var studyWord: String
     public var translates: [String]
@@ -23,7 +23,7 @@ public struct WordListObject: Codable {
     }
 }
 
-public struct WordGetObject: Codable {
+public struct LxWordGet: Codable {
     public var id: UUID
     public var studyWord: String
     public var translates: [String]
@@ -74,7 +74,7 @@ public struct WordGetObject: Codable {
     }
 }
 
-public struct WordCreateObject: Codable {
+public struct LxWordCreate: Codable {
     public var studyWord: String
     public var translates: [String]
     public var imageKey: String?
@@ -93,7 +93,7 @@ public struct WordCreateObject: Codable {
     }
 }
 
-public struct WordUpdateObject: Codable {
+public struct LxWordUpdate: Codable {
     public var nextLessonDate: Date
     
     public init(nextLessonDate: Date) {
@@ -101,7 +101,7 @@ public struct WordUpdateObject: Codable {
     }
 }
 
-public struct WordPatchObject: Codable {
+public struct LxWordPatch: Codable {
     public var nextLessonDate: Date
     
     public init(nextLessonDate: Date) {

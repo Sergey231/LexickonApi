@@ -1,7 +1,7 @@
 
 import Foundation
 
-public enum HTTPObject {
+public enum LxHTTPObject {
     
     public enum Method: String {
         case get

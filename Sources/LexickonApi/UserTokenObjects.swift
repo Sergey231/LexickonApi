@@ -1,7 +1,7 @@
 
 import Foundation
 
-public struct UserTokenGetObject: Codable {
+public struct LxUserTokenGet: Codable {
     
     public var value: String
     public var id: String
