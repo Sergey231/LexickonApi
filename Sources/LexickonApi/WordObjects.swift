@@ -27,14 +27,14 @@ public struct WordGetObject: Codable {
     public var id: UUID
     public var studyWord: String
     public var translates: [String]
-    public var nextLessonDate: String
+    public var nextLessonDate: Date
     public var image: String
     
     public init(
         id: UUID,
         studyWord: String,
         translates: [String],
-        nextLessonDate: String,
+        nextLessonDate: Date,
         image: String
     ) {
         self.id = id
