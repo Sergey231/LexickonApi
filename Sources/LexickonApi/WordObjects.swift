@@ -51,6 +51,27 @@ public struct WordGetObject: Codable {
         case nextLessonDate
         case image
     }
+    
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        
+        id = try container.decode(UUID.self, forKey: .id)
+        studyWord = try container.decode(String.self, forKey: .studyWord)
+        translates = try container.decode([String].self, forKey: .translates)
+        image = try container.decode(String.self, forKey: .image)
+        
+        let nextLessonDateString = try container.decode(String.self, forKey: .nextLessonDate)
+        let dateFormatter = DateFormatter.iso8601
+        if let date = dateFormatter.date(from: nextLessonDateString) {
+            nextLessonDate = date
+        } else {
+            throw DecodingError.dataCorruptedError(
+                forKey: .nextLessonDate,
+                in: container,
+                debugDescription: "Date string does not match format expected by formatter."
+            )
+        }
+    }
 }
 
 public struct WordCreateObject: Codable {
@@ -86,4 +107,14 @@ public struct WordPatchObject: Codable {
     public init(nextLessonDate: Date) {
         self.nextLessonDate = nextLessonDate
     }
+}
+
+extension DateFormatter {
+  public static let iso8601: DateFormatter = {
+    let formatter = DateFormatter()
+    formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+    formatter.calendar = Calendar(identifier: .iso8601)
+    formatter.timeZone = TimeZone(secondsFromGMT: 0)
+    return formatter
+  }()
 }
