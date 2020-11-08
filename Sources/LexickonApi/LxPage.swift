@@ -16,6 +16,20 @@ public struct LxPage<T: Decodable>: Decodable {
             self.per = per
             self.total = total
         }
+        
+        private enum CodingKeys: String, CodingKey {
+            case page
+            case per
+            case total
+        }
+        
+        public init(from decoder: Decoder) throws {
+            let container = try decoder.container(keyedBy: CodingKeys.self)
+            
+            self.page = try container.decode(Int.self, forKey: .page)
+            self.per = try container.decode(Int.self, forKey: .per)
+            self.total = try container.decode(Int.self, forKey: .total)
+        }
     }
     let metadata: Metadata
     let items: [T]
