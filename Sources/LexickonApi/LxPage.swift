@@ -49,8 +49,12 @@ public struct LxPage<T: Decodable>: Decodable {
     
     public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        
-        self.items = try container.decode([T].self, forKey: .items)
-        self.metadata = try container.decode(Metadata.self, forKey: .metadata)
+        do {
+            self.items = try container.decode([T].self, forKey: .items)
+            self.metadata = try container.decode(Metadata.self, forKey: .metadata)
+        } catch {
+            print(error)
+            throw LxHTTPObject.Error.unknown
+        }
     }
 }
