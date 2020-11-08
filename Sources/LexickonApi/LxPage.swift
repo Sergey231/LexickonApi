@@ -27,4 +27,16 @@ public struct LxPage<T: Decodable>: Decodable {
         self.metadata = metadata
         self.items = items
     }
+    
+    private enum CodingKeys: String, CodingKey {
+        case metadata
+        case items
+    }
+    
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        
+        self.metadata = try container.decode(Metadata.self, forKey: .metadata)
+        self.items = try container.decode([T].self, forKey: .items)
+    }
 }
