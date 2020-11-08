@@ -50,7 +50,7 @@ public struct LxPage<T: Decodable>: Decodable {
     public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         
-        self.metadata = try container.decode(Metadata.self, forKey: .metadata)
         self.items = try container.decode([T].self, forKey: .items)
+        self.metadata = try container.decode(Metadata.self, forKey: .metadata)
     }
 }
