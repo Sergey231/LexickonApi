@@ -21,6 +21,35 @@ public struct LxWordList: Codable {
         self.nextLessonDate = nextLessonDate
         self.image = image
     }
+    
+    private enum CodingKeys: String, CodingKey {
+        case id
+        case studyWord
+        case translates
+        case nextLessonDate
+        case image
+    }
+    
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        
+        id = try container.decode(UUID.self, forKey: .id)
+        studyWord = try container.decode(String.self, forKey: .studyWord)
+        translates = try container.decode([String].self, forKey: .translates)
+        image = try container.decode(String.self, forKey: .image)
+        
+        let nextLessonDateString = try container.decode(String.self, forKey: .nextLessonDate)
+        let dateFormatter = DateFormatter.iso8601
+        if let date = dateFormatter.date(from: nextLessonDateString) {
+            nextLessonDate = date
+        } else {
+            throw DecodingError.dataCorruptedError(
+                forKey: .nextLessonDate,
+                in: container,
+                debugDescription: "Date string does not match format expected by formatter."
+            )
+        }
+    }
 }
 
 public struct LxWordGet: Codable {
@@ -99,6 +128,26 @@ public struct LxWordUpdate: Codable {
     public init(nextLessonDate: Date) {
         self.nextLessonDate = nextLessonDate
     }
+    
+    private enum CodingKeys: String, CodingKey {
+        case nextLessonDate
+    }
+    
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        
+        let nextLessonDateString = try container.decode(String.self, forKey: .nextLessonDate)
+        let dateFormatter = DateFormatter.iso8601
+        if let date = dateFormatter.date(from: nextLessonDateString) {
+            nextLessonDate = date
+        } else {
+            throw DecodingError.dataCorruptedError(
+                forKey: .nextLessonDate,
+                in: container,
+                debugDescription: "Date string does not match format expected by formatter."
+            )
+        }
+    }
 }
 
 public struct LxWordPatch: Codable {
@@ -106,6 +155,26 @@ public struct LxWordPatch: Codable {
     
     public init(nextLessonDate: Date) {
         self.nextLessonDate = nextLessonDate
+    }
+    
+    private enum CodingKeys: String, CodingKey {
+        case nextLessonDate
+    }
+    
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        
+        let nextLessonDateString = try container.decode(String.self, forKey: .nextLessonDate)
+        let dateFormatter = DateFormatter.iso8601
+        if let date = dateFormatter.date(from: nextLessonDateString) {
+            nextLessonDate = date
+        } else {
+            throw DecodingError.dataCorruptedError(
+                forKey: .nextLessonDate,
+                in: container,
+                debugDescription: "Date string does not match format expected by formatter."
+            )
+        }
     }
 }
 
