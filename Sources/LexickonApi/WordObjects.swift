@@ -43,6 +43,14 @@ public struct WordGetObject: Codable {
         self.nextLessonDate = nextLessonDate
         self.image = image
     }
+    
+    private enum CodingKeys: String, CodingKey {
+        case id
+        case studyWord
+        case translates
+        case nextLessonDate
+        case image
+    }
 }
 
 public struct WordCreateObject: Codable {
