@@ -8,8 +8,8 @@ public struct LxPage<T: Decodable>: Decodable {
         let total: Int
     }
     
-    let metadata: Metadata
-    let items: [T]
+    public let metadata: Metadata
+    public let items: [T]
     
     public init(
         metadata: Metadata,
