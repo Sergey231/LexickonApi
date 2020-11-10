@@ -8,20 +8,6 @@ public struct LxWordList: Codable {
     public var nextLessonDate: Date
     public var image: String
     
-    public init(
-        id: UUID,
-        studyWord: String,
-        translates: [String],
-        nextLessonDate: Date,
-        image: String
-    ) {
-        self.id = id
-        self.studyWord = studyWord
-        self.translates = translates
-        self.nextLessonDate = nextLessonDate
-        self.image = image
-    }
-    
     private enum CodingKeys: String, CodingKey {
         case id
         case studyWord
@@ -58,20 +44,6 @@ public struct LxWordGet: Codable {
     public var translates: [String]
     public var nextLessonDate: Date
     public var image: String
-    
-    public init(
-        id: UUID,
-        studyWord: String,
-        translates: [String],
-        nextLessonDate: Date,
-        image: String
-    ) {
-        self.id = id
-        self.studyWord = studyWord
-        self.translates = translates
-        self.nextLessonDate = nextLessonDate
-        self.image = image
-    }
     
     private enum CodingKeys: String, CodingKey {
         case id
