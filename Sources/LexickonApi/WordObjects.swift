@@ -2,11 +2,32 @@
 import Foundation
 
 public struct LxWordList: Codable {
+    
+    public enum StudyType: String, Codable {
+        case fire
+        case ready
+        case new
+        case waiting
+    }
+    
     public var id: UUID
     public var studyWord: String
     public var translates: [String]
-    public var nextLessonDate: Date
+    public var nextLessonDate: Date?
     public var image: String
+    
+    // MARK: Test Implementation
+    public var studyType: StudyType {
+        if studyWord == "Cup" {
+            return .fire
+        } else if studyWord == "Car" {
+            return .ready
+        } else if studyWord == "Knife" {
+            return .new
+        }
+        
+        return .waiting
+    }
     
     private enum CodingKeys: String, CodingKey {
         case id
@@ -26,15 +47,7 @@ public struct LxWordList: Codable {
         
         let nextLessonDateString = try container.decode(String.self, forKey: .nextLessonDate)
         let dateFormatter = DateFormatter.iso8601
-        if let date = dateFormatter.date(from: nextLessonDateString) {
-            nextLessonDate = date
-        } else {
-            throw DecodingError.dataCorruptedError(
-                forKey: .nextLessonDate,
-                in: container,
-                debugDescription: "Date string does not match format expected by formatter."
-            )
-        }
+        nextLessonDate = dateFormatter.date(from: nextLessonDateString)
     }
 }
 
