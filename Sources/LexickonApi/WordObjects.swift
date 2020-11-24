@@ -18,11 +18,11 @@ public struct LxWordList: Codable {
     
     // MARK: Test Implementation
     public var studyType: StudyType {
-        if studyWord == "Cup" {
+        if studyWord == "Cup" || studyWord == "Car" {
             return .fire
-        } else if studyWord == "Car" {
+        } else if studyWord == "Knife" || studyWord == "dog" || studyWord == "cat" {
             return .ready
-        } else if studyWord == "Knife" {
+        } else if studyWord == "study" || studyWord == "keyboard" {
             return .new
         }
         
