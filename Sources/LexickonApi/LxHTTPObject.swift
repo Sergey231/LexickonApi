@@ -12,6 +12,7 @@ public enum LxHTTPObject {
     }
     
     public enum Error: LocalizedError {
+        case invalidRepositoryRequest
         case invalidResponse
         case unauthorized
         case statusCode(Int)
