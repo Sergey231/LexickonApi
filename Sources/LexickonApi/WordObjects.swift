@@ -3,6 +3,20 @@ import Foundation
 
 public struct LxWordList: Codable {
     
+    public init(
+        id: UUID,
+        studyWord: String,
+        translates: [String],
+        nextLessonDate: Date?,
+        image: String
+    ) {
+        self.id = id
+        self.studyWord = studyWord
+        self.translates = translates
+        self.nextLessonDate = nextLessonDate
+        self.image = image
+    }
+    
     public enum StudyType: String, Codable {
         case fire
         case ready
@@ -10,11 +24,11 @@ public struct LxWordList: Codable {
         case waiting
     }
     
-    public var id: UUID
-    public var studyWord: String
-    public var translates: [String]
-    public var nextLessonDate: Date?
-    public var image: String
+    public let id: UUID
+    public let studyWord: String
+    public let translates: [String]
+    public let nextLessonDate: Date?
+    public let image: String
     
     // MARK: Test Implementation
     public var studyType: StudyType {
@@ -52,11 +66,26 @@ public struct LxWordList: Codable {
 }
 
 public struct LxWordGet: Codable {
-    public var id: UUID
-    public var studyWord: String
-    public var translates: [String]
-    public var nextLessonDate: Date
-    public var image: String
+    
+    public init(
+        id: UUID,
+        studyWord: String,
+        translates: [String],
+        nextLessonDate: Date,
+        image: String
+    ) {
+        self.id = id
+        self.studyWord = studyWord
+        self.translates = translates
+        self.nextLessonDate = nextLessonDate
+        self.image = image
+    }
+    
+    public let id: UUID
+    public let studyWord: String
+    public let translates: [String]
+    public let nextLessonDate: Date
+    public let image: String
     
     private enum CodingKeys: String, CodingKey {
         case id
@@ -89,6 +118,17 @@ public struct LxWordGet: Codable {
 }
 
 public struct LxWordCreate: Codable {
+    
+    public init(
+        studyWord: String,
+        translates: [String],
+        image: String
+    ) {
+        self.studyWord = studyWord
+        self.translates = translates
+        self.image = image
+    }
+    
     public var studyWord: String
     public var translates: [String]
     public var imageKey: String?
@@ -108,7 +148,7 @@ public struct LxWordCreate: Codable {
 }
 
 public struct LxWordUpdate: Codable {
-    public var nextLessonDate: Date
+    public let nextLessonDate: Date
     
     public init(nextLessonDate: Date) {
         self.nextLessonDate = nextLessonDate
@@ -136,7 +176,7 @@ public struct LxWordUpdate: Codable {
 }
 
 public struct LxWordPatch: Codable {
-    public var nextLessonDate: Date
+    public let nextLessonDate: Date
     
     public init(nextLessonDate: Date) {
         self.nextLessonDate = nextLessonDate
