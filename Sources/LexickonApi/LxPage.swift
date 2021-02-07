@@ -3,6 +3,17 @@ import Foundation
 
 public struct LxPage<T: Decodable>: Decodable {
     public struct Metadata: Decodable {
+        
+        public init(
+            page: Int,
+            per: Int,
+            total: Int
+        ) {
+            self.page = page
+            self.per = per
+            self.total = total
+        }
+        
         let page: Int
         let per: Int
         let total: Int
