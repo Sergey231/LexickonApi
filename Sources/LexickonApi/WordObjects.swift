@@ -1,6 +1,13 @@
 
 import Foundation
 
+public enum StudyType: String, Codable {
+    case fire
+    case ready
+    case new
+    case waiting
+}
+
 public struct LxWordList: Codable {
     
     public init(
@@ -15,13 +22,6 @@ public struct LxWordList: Codable {
         self.translates = translates
         self.nextLessonDate = nextLessonDate
         self.image = image
-    }
-    
-    public enum StudyType: String, Codable {
-        case fire
-        case ready
-        case new
-        case waiting
     }
     
     public let id: UUID
