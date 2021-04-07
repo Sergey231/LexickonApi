@@ -22,6 +22,24 @@ public struct LxWordList: Codable {
         case ready
         case new
         case waiting
+        
+        public var canBeReseted: Bool {
+            switch self {
+            case .new:
+                return false
+            default:
+                return true
+            }
+        }
+        
+        public var canBeLearnt: Bool {
+            switch self {
+            case .waiting:
+                return false
+            default:
+                return true
+            }
+        }
     }
     
     public let id: UUID
