@@ -1,6 +1,13 @@
 
 import Foundation
 
+public enum StudyType: String, Codable {
+    case fire
+    case ready
+    case new
+    case waiting
+}
+
 public struct LxWordList: Codable {
     
     public init(
