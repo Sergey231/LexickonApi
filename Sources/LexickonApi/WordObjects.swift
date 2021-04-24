@@ -26,6 +26,8 @@ public enum StudyType: String, Codable {
     }
 }
 
+// MARK: LxWordList
+
 public struct LxWordList: Codable {
     
     public init(
@@ -83,6 +85,8 @@ public struct LxWordList: Codable {
     }
 }
 
+// MARK: LxWordGet
+
 public struct LxWordGet: Codable {
     
     public init(
@@ -135,6 +139,8 @@ public struct LxWordGet: Codable {
     }
 }
 
+// MARK: LxWordCreate
+
 public struct LxWordCreate: Codable {
     
     public init(
@@ -165,6 +171,8 @@ public struct LxWordCreate: Codable {
     }
 }
 
+// MARK: LxWordUpdate
+
 public struct LxWordUpdate: Codable {
     public let nextLessonDate: Date
     
@@ -192,6 +200,8 @@ public struct LxWordUpdate: Codable {
         }
     }
 }
+
+// MARK: LxWordPanch
 
 public struct LxWordPatch: Codable {
     public let nextLessonDate: Date
