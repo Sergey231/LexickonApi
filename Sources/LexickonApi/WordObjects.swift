@@ -171,6 +171,28 @@ public struct LxWordCreate: Codable {
     }
 }
 
+// MARK: LxWordsCreate
+
+public struct LxWordsCreate: Codable {
+    
+    public init(
+        words: [LxWordCreate]
+    ) {
+        self.words = words
+    }
+    
+    public var words: [LxWordCreate]
+    
+    private enum CodingKeys: String, CodingKey {
+        case words
+    }
+    
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        words = try container.decode([LxWordCreate].self, forKey: .words)
+    }
+}
+
 // MARK: LxWordUpdate
 
 public struct LxWordUpdate: Codable {
