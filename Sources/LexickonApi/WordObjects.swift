@@ -50,19 +50,6 @@ public struct LxWordList: Codable {
     public let nextLessonDate: Date?
     public let image: String
     
-    // MARK: Test Implementation
-    public var studyType: StudyType {
-        if studyWord == "Cup" || studyWord == "Car" {
-            return .fire
-        } else if studyWord == "Knife" || studyWord == "dog" || studyWord == "cat" {
-            return .ready
-        } else if studyWord == "study" || studyWord == "keyboard" {
-            return .new
-        }
-        
-        return .waiting
-    }
-    
     private enum CodingKeys: String, CodingKey {
         case id
         case studyWord
