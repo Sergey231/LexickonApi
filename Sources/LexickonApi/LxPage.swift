@@ -14,9 +14,9 @@ public struct LxPage<T: Decodable>: Decodable {
             self.total = total
         }
         
-        let page: Int
-        let per: Int
-        let total: Int
+        public let page: Int
+        public let per: Int
+        public let total: Int
     }
     
     public let metadata: Metadata
