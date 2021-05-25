@@ -2,6 +2,7 @@
 import Foundation
 
 public enum StudyType: String, Codable {
+    
     case fire
     case ready
     case new
@@ -30,6 +31,12 @@ public enum StudyType: String, Codable {
 
 public struct LxWordList: Codable {
     
+    public let id: UUID
+    public let studyWord: String
+    public let translates: [String]
+    public let nextLessonDate: Date?
+    public let image: String
+    
     public init(
         id: UUID,
         studyWord: String,
@@ -43,12 +50,6 @@ public struct LxWordList: Codable {
         self.nextLessonDate = nextLessonDate
         self.image = image
     }
-    
-    public let id: UUID
-    public let studyWord: String
-    public let translates: [String]
-    public let nextLessonDate: Date?
-    public let image: String
     
     private enum CodingKeys: String, CodingKey {
         case id
@@ -76,6 +77,12 @@ public struct LxWordList: Codable {
 
 public struct LxWordGet: Codable {
     
+    public let id: UUID
+    public let studyWord: String
+    public let translates: [String]
+    public let nextLessonDate: Date
+    public let image: String
+    
     public init(
         id: UUID,
         studyWord: String,
@@ -89,12 +96,6 @@ public struct LxWordGet: Codable {
         self.nextLessonDate = nextLessonDate
         self.image = image
     }
-    
-    public let id: UUID
-    public let studyWord: String
-    public let translates: [String]
-    public let nextLessonDate: Date
-    public let image: String
     
     private enum CodingKeys: String, CodingKey {
         case id
@@ -130,6 +131,11 @@ public struct LxWordGet: Codable {
 
 public struct LxWordCreate: Codable {
     
+    public var studyWord: String
+    public var translates: [String]
+    public var imageKey: String?
+    public var image: String
+    
     public init(
         studyWord: String,
         translates: [String],
@@ -139,11 +145,6 @@ public struct LxWordCreate: Codable {
         self.translates = translates
         self.image = image
     }
-    
-    public var studyWord: String
-    public var translates: [String]
-    public var imageKey: String?
-    public var image: String
     
     public init(
         studyWord: String,
