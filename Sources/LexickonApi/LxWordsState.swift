@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct WordsState: Codable {
+public struct LxWordsState: Codable {
     
     public let fireWordsCount: UInt
     public let readyWordsCount: UInt
