@@ -80,14 +80,14 @@ public struct LxWordGet: Codable {
     public let id: UUID
     public let studyWord: String
     public let translates: [String]
-    public let nextLessonDate: Date
+    public let nextLessonDate: Date?
     public let image: String
     
     public init(
         id: UUID,
         studyWord: String,
         translates: [String],
-        nextLessonDate: Date,
+        nextLessonDate: Date?,
         image: String
     ) {
         self.id = id
