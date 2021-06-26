@@ -1,7 +1,13 @@
 
 import Foundation
 
-public enum StudyType: String, Codable {
+public enum LxStudyStateTimePeriodPercentages {
+    static let waiting: CGFloat = 0.7
+    static let ready: CGFloat = 0.2
+    static let fire: CGFloat = 0.1
+}
+
+public enum StudyState: String, Codable {
     
     case fire
     case ready
@@ -34,20 +40,23 @@ public struct LxWordList: Codable {
     public let id: UUID
     public let studyWord: String
     public let translates: [String]
-    public let nextLessonDate: Date?
+    public let updatingStudyRatingDate: Int?
+    public let studyRating: Int
     public let image: String
     
     public init(
         id: UUID,
         studyWord: String,
         translates: [String],
-        nextLessonDate: Date?,
+        updatingStudyRatingDate: Int?,
+        studyRating: Int,
         image: String
     ) {
         self.id = id
         self.studyWord = studyWord
         self.translates = translates
-        self.nextLessonDate = nextLessonDate
+        self.updatingStudyRatingDate = updatingStudyRatingDate
+        self.studyRating = studyRating
         self.image = image
     }
     
@@ -55,7 +64,8 @@ public struct LxWordList: Codable {
         case id
         case studyWord
         case translates
-        case nextLessonDate
+        case updatingStudyRatingDate
+        case studyRating
         case image
     }
     
@@ -65,11 +75,9 @@ public struct LxWordList: Codable {
         id = try container.decode(UUID.self, forKey: .id)
         studyWord = try container.decode(String.self, forKey: .studyWord)
         translates = try container.decode([String].self, forKey: .translates)
+        updatingStudyRatingDate = try container.decode(Int.self, forKey: .updatingStudyRatingDate)
+        studyRating = try container.decode(Int.self, forKey: .studyRating)
         image = try container.decode(String.self, forKey: .image)
-        
-        let nextLessonDateString = try container.decode(String.self, forKey: .nextLessonDate)
-        let dateFormatter = DateFormatter.iso8601
-        nextLessonDate = dateFormatter.date(from: nextLessonDateString)
     }
 }
 
@@ -80,20 +88,23 @@ public struct LxWordGet: Codable {
     public let id: UUID
     public let studyWord: String
     public let translates: [String]
-    public let nextLessonDate: Date?
+    public let updatingStudyRatingDate: Int?
+    public let studyRating: Int
     public let image: String
     
     public init(
         id: UUID,
         studyWord: String,
         translates: [String],
-        nextLessonDate: Date?,
+        updatingStudyRatingDate: Int?,
+        studyRating: Int,
         image: String
     ) {
         self.id = id
         self.studyWord = studyWord
         self.translates = translates
-        self.nextLessonDate = nextLessonDate
+        self.updatingStudyRatingDate = updatingStudyRatingDate
+        self.studyRating = studyRating
         self.image = image
     }
     
@@ -101,7 +112,8 @@ public struct LxWordGet: Codable {
         case id
         case studyWord
         case translates
-        case nextLessonDate
+        case updatingStudyRatingDate
+        case studyRating
         case image
     }
     
@@ -111,19 +123,9 @@ public struct LxWordGet: Codable {
         id = try container.decode(UUID.self, forKey: .id)
         studyWord = try container.decode(String.self, forKey: .studyWord)
         translates = try container.decode([String].self, forKey: .translates)
+        updatingStudyRatingDate = try container.decode(Int.self, forKey: .updatingStudyRatingDate)
+        studyRating = try container.decode(Int.self, forKey: .studyRating)
         image = try container.decode(String.self, forKey: .image)
-        
-        let nextLessonDateString = try container.decode(String.self, forKey: .nextLessonDate)
-        let dateFormatter = DateFormatter.iso8601
-        if let date = dateFormatter.date(from: nextLessonDateString) {
-            nextLessonDate = date
-        } else {
-            throw DecodingError.dataCorruptedError(
-                forKey: .nextLessonDate,
-                in: container,
-                debugDescription: "Date string does not match format expected by formatter."
-            )
-        }
     }
 }
 
@@ -184,60 +186,40 @@ public struct LxWordsCreate: Codable {
 // MARK: LxWordUpdate
 
 public struct LxWordUpdate: Codable {
-    public let nextLessonDate: Date
     
-    public init(nextLessonDate: Date) {
-        self.nextLessonDate = nextLessonDate
+    public let updatingStudyRatingDate: Int?
+    
+    public init(updatingStudyRatingDate: Int) {
+        self.updatingStudyRatingDate = updatingStudyRatingDate
     }
     
     private enum CodingKeys: String, CodingKey {
-        case nextLessonDate
+        case updatingStudyRatingDate
     }
     
     public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        
-        let nextLessonDateString = try container.decode(String.self, forKey: .nextLessonDate)
-        let dateFormatter = DateFormatter.iso8601
-        if let date = dateFormatter.date(from: nextLessonDateString) {
-            nextLessonDate = date
-        } else {
-            throw DecodingError.dataCorruptedError(
-                forKey: .nextLessonDate,
-                in: container,
-                debugDescription: "Date string does not match format expected by formatter."
-            )
-        }
+        updatingStudyRatingDate = try container.decode(Int.self, forKey: .updatingStudyRatingDate)
     }
 }
 
 // MARK: LxWordPanch
 
 public struct LxWordPatch: Codable {
-    public let nextLessonDate: Date
     
-    public init(nextLessonDate: Date) {
-        self.nextLessonDate = nextLessonDate
+    public let updatingStudyRatingDate: Int?
+    
+    public init(updatingStudyRatingDate: Int) {
+        self.updatingStudyRatingDate = updatingStudyRatingDate
     }
     
     private enum CodingKeys: String, CodingKey {
-        case nextLessonDate
+        case updatingStudyRatingDate
     }
     
     public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        
-        let nextLessonDateString = try container.decode(String.self, forKey: .nextLessonDate)
-        let dateFormatter = DateFormatter.iso8601
-        if let date = dateFormatter.date(from: nextLessonDateString) {
-            nextLessonDate = date
-        } else {
-            throw DecodingError.dataCorruptedError(
-                forKey: .nextLessonDate,
-                in: container,
-                debugDescription: "Date string does not match format expected by formatter."
-            )
-        }
+        updatingStudyRatingDate = try container.decode(Int.self, forKey: .updatingStudyRatingDate)
     }
 }
 
