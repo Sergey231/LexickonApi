@@ -2,9 +2,9 @@
 import Foundation
 
 public enum LxStudyStateTimePeriodPercentages {
-    static let waiting: CGFloat = 0.7
-    static let ready: CGFloat = 0.2
-    static let fire: CGFloat = 0.1
+    static let waiting: Int = 70
+    static let ready: Int = 20
+    static let fire: Int = 10
 }
 
 public enum StudyState: String, Codable {
