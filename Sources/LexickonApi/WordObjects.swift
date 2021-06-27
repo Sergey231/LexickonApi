@@ -187,19 +187,15 @@ public struct LxWordsCreate: Codable {
 
 public struct LxWordUpdate: Codable {
     
-    public let updatingStudyRatingDate: Int?
+    public let updatingStudyRatingDate: Int
+    public let studyRating: Int
     
-    public init(updatingStudyRatingDate: Int) {
+    public init(
+        updatingStudyRatingDate: Int,
+        studyRating: Int
+    ) {
         self.updatingStudyRatingDate = updatingStudyRatingDate
-    }
-    
-    private enum CodingKeys: String, CodingKey {
-        case updatingStudyRatingDate
-    }
-    
-    public init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        updatingStudyRatingDate = try container.decode(Int.self, forKey: .updatingStudyRatingDate)
+        self.studyRating = studyRating
     }
 }
 
@@ -211,15 +207,6 @@ public struct LxWordPatch: Codable {
     
     public init(updatingStudyRatingDate: Int) {
         self.updatingStudyRatingDate = updatingStudyRatingDate
-    }
-    
-    private enum CodingKeys: String, CodingKey {
-        case updatingStudyRatingDate
-    }
-    
-    public init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        updatingStudyRatingDate = try container.decode(Int.self, forKey: .updatingStudyRatingDate)
     }
 }
 
