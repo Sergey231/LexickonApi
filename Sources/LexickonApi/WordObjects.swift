@@ -7,12 +7,13 @@ public enum LxStudyStateTimePeriodPercentages {
     static let fire: Int = 10
 }
 
-public enum StudyState: String, Codable {
+public enum LxStudyState: String, Codable {
     
     case fire
     case ready
     case new
     case waiting
+    case downgradeRating
     
     public var canBeReseted: Bool {
         switch self {
