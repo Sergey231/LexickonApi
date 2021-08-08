@@ -42,7 +42,7 @@ public struct LxWordList: Codable {
     public let studyWord: String
     public let translates: [String]
     public let updatingStudyRatingDate: Int?
-    public let studyRating: Int
+    public let studyRating: UInt
     public let image: String
     
     public init(
@@ -50,7 +50,7 @@ public struct LxWordList: Codable {
         studyWord: String,
         translates: [String],
         updatingStudyRatingDate: Int?,
-        studyRating: Int,
+        studyRating: UInt,
         image: String
     ) {
         self.id = id
@@ -90,7 +90,7 @@ public struct LxWordGet: Codable {
     public let studyWord: String
     public let translates: [String]
     public let updatingStudyRatingDate: Int?
-    public let studyRating: Int
+    public let studyRating: UInt
     public let image: String
     
     public init(
@@ -98,7 +98,7 @@ public struct LxWordGet: Codable {
         studyWord: String,
         translates: [String],
         updatingStudyRatingDate: Int?,
-        studyRating: Int,
+        studyRating: UInt,
         image: String
     ) {
         self.id = id
@@ -189,11 +189,11 @@ public struct LxWordsCreate: Codable {
 public struct LxWordUpdate: Codable {
     
     public let updatingStudyRatingDate: Int
-    public let studyRating: Int
+    public let studyRating: UInt
     
     public init(
         updatingStudyRatingDate: Int,
-        studyRating: Int
+        studyRating: UInt
     ) {
         self.updatingStudyRatingDate = updatingStudyRatingDate
         self.studyRating = studyRating
