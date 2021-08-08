@@ -41,7 +41,7 @@ public struct LxWordList: Codable {
     public let id: UUID
     public let studyWord: String
     public let translates: [String]
-    public let updatingStudyRatingDate: Int?
+    public let updatingStudyRatingDate: UInt?
     public let studyRating: UInt
     public let image: String
     
@@ -49,7 +49,7 @@ public struct LxWordList: Codable {
         id: UUID,
         studyWord: String,
         translates: [String],
-        updatingStudyRatingDate: Int?,
+        updatingStudyRatingDate: UInt?,
         studyRating: UInt,
         image: String
     ) {
@@ -76,8 +76,8 @@ public struct LxWordList: Codable {
         id = try container.decode(UUID.self, forKey: .id)
         studyWord = try container.decode(String.self, forKey: .studyWord)
         translates = try container.decode([String].self, forKey: .translates)
-        updatingStudyRatingDate = try container.decode(Int.self, forKey: .updatingStudyRatingDate)
-        studyRating = try container.decode(Int.self, forKey: .studyRating)
+        updatingStudyRatingDate = try container.decode(UInt.self, forKey: .updatingStudyRatingDate)
+        studyRating = try container.decode(UInt.self, forKey: .studyRating)
         image = try container.decode(String.self, forKey: .image)
     }
 }
@@ -89,7 +89,7 @@ public struct LxWordGet: Codable {
     public let id: UUID
     public let studyWord: String
     public let translates: [String]
-    public let updatingStudyRatingDate: Int?
+    public let updatingStudyRatingDate: UInt?
     public let studyRating: UInt
     public let image: String
     
@@ -97,7 +97,7 @@ public struct LxWordGet: Codable {
         id: UUID,
         studyWord: String,
         translates: [String],
-        updatingStudyRatingDate: Int?,
+        updatingStudyRatingDate: UInt?,
         studyRating: UInt,
         image: String
     ) {
@@ -124,8 +124,8 @@ public struct LxWordGet: Codable {
         id = try container.decode(UUID.self, forKey: .id)
         studyWord = try container.decode(String.self, forKey: .studyWord)
         translates = try container.decode([String].self, forKey: .translates)
-        updatingStudyRatingDate = try container.decode(Int.self, forKey: .updatingStudyRatingDate)
-        studyRating = try container.decode(Int.self, forKey: .studyRating)
+        updatingStudyRatingDate = try container.decode(UInt.self, forKey: .updatingStudyRatingDate)
+        studyRating = try container.decode(UInt.self, forKey: .studyRating)
         image = try container.decode(String.self, forKey: .image)
     }
 }
@@ -188,11 +188,11 @@ public struct LxWordsCreate: Codable {
 
 public struct LxWordUpdate: Codable {
     
-    public let updatingStudyRatingDate: Int
+    public let updatingStudyRatingDate: UInt
     public let studyRating: UInt
     
     public init(
-        updatingStudyRatingDate: Int,
+        updatingStudyRatingDate: UInt,
         studyRating: UInt
     ) {
         self.updatingStudyRatingDate = updatingStudyRatingDate
@@ -204,9 +204,9 @@ public struct LxWordUpdate: Codable {
 
 public struct LxWordPatch: Codable {
     
-    public let updatingStudyRatingDate: Int?
+    public let updatingStudyRatingDate: UInt?
     
-    public init(updatingStudyRatingDate: Int) {
+    public init(updatingStudyRatingDate: UInt) {
         self.updatingStudyRatingDate = updatingStudyRatingDate
     }
 }
