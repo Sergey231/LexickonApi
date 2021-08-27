@@ -1,4 +1,4 @@
-// swift-tools-version:5.3
+// swift-tools-version:5.4
 import PackageDescription
 
 let package = Package(
@@ -16,5 +16,6 @@ let package = Package(
     targets: [
         .target(name: "LexickonApi", dependencies: []),
         .testTarget(name: "LexickonApiTests", dependencies: ["LexickonApi"]),
-    ]
+    ],
+    swiftLanguageVersions: [.v5]
 )
