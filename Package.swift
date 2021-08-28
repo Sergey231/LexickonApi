@@ -16,6 +16,5 @@ let package = Package(
     targets: [
         .target(name: "LexickonApi", dependencies: []),
         .testTarget(name: "LexickonApiTests", dependencies: ["LexickonApi"]),
-    ],
-    swiftLanguageVersions: [.v5]
+    ]
 )
