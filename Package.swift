@@ -1,10 +1,10 @@
-// swift-tools-version:5.2
+// swift-tools-version:5.5
 import PackageDescription
 
 let package = Package(
     name: "LexickonApi",
     platforms: [
-        .macOS(.v10_15),
+        .macOS(.v11),
         .iOS(.v13),
         .tvOS(.v13),
         .watchOS(.v6),
