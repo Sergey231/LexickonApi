@@ -188,13 +188,16 @@ public struct LxWordsCreate: Codable {
 
 public struct LxWordUpdate: Codable {
     
+    public let id: UUID
     public let updatingStudyRatingDate: UInt
     public let studyRating: UInt
     
     public init(
+        id: UUID,
         updatingStudyRatingDate: UInt,
         studyRating: UInt
     ) {
+        self.id = id
         self.updatingStudyRatingDate = updatingStudyRatingDate
         self.studyRating = studyRating
     }
